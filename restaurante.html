@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Le Bistro | Cocina Francesa Contemporánea</title>
+    <style>
+        /* Reset y Variables CSS */
+        :root {
+            --primary: #e63946;
+            --secondary: #a8dadc;
+            --dark: #1d3557;
+            --light: #f1faee;
+            --gold: #ffd166;
+            --font-title: 'Playfair Display', serif;
+            --font-text: 'Roboto', sans-serif;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: var(--font-text); color: #333; }
+        
+        /* Header */
+        header {
+            background: white;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .logo {
+            font-family: var(--font-title);
+            font-size: 2rem;
+            color: var(--primary);
+            font-weight: 700;
+        }
+        .nav-links a {
+            margin: 0 1.5rem;
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        .nav-links a:hover { color: var(--primary); }
+        
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+                        url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center/cover;
+            display: flex;
+            align-items: center;
+            padding: 0 5%;
+            color: white;
+        }
+        .hero-content {
+            max-width: 600px;
+        }
+        .hero h1 {
+            font-family: var(--font-title);
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        .btn {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+        
+        /* Menú */
+        .menu-section {
+            padding: 6rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .section-title {
+            font-family: var(--font-title);
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--dark);
+        }
+        .menu-categories {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+        }
+        .category-btn {
+            padding: 0.7rem 1.5rem;
+            border: 1px solid var(--dark);
+            background: transparent;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .category-btn.active {
+            background: var(--dark);
+            color: white;
+        }
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+        .menu-item {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        .menu-item:hover {
+            transform: translateY(-10px);
+        }
+        .menu-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+        .menu-item-content {
+            padding: 1.5rem;
+        }
+        .menu-item h3 {
+            font-family: var(--font-title);
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+        .menu-item p {
+            color: #666;
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+        .price {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        .diet-tags {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+        .tag {
+            font-size: 0.7rem;
+            padding: 0.3rem 0.8rem;
+            border-radius: 50px;
+            background: var(--secondary);
+            color: var(--dark);
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 3rem 5%;
+        }
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+        .social-links a:hover { color: var(--secondary); }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">Le Bistro</div>
+            <div class="nav-links">
+                <a href="#inicio">Inicio</a>
+                <a href="#menu">Menú</a>
+                <a href="#chef">Nuestro Chef</a>
+                <a href="#contacto">Contacto</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero">
+        <div class="hero-content">
+            <h1>Experiencia Gastronómica Francesa</h1>
+            <p>Sabores auténticos con un toque contemporáneo en el corazón de la ciudad</p>
+            <a href="#reservas" class="btn">Reservar Mesa</a>
+        </div>
+    </section>
+
+    <!-- Menú Section -->
+    <section id="menu" class="menu-section">
+        <h2 class="section-title">Nuestra Carta</h2>
+        <div class="menu-categories">
+            <button class="category-btn active" onclick="filterMenu('all')">Todo</button>
+            <button class="category-btn" onclick="filterMenu('entrantes')">Entrantes</button>
+            <button class="category-btn" onclick="filterMenu('principales')">Platos Principales</button>
+            <button class="category-btn" onclick="filterMenu('postres')">Postres</button>
+        </div>
+        <div class="menu-grid" id="menuContainer">
+            <!-- Menú items generados con JS -->
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contacto">
+        <div class="footer-content">
+            <h3>Le Bistro</h3>
+            <p>123 Rue de Gourmet, París | +33 1 23 45 67 89</p>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-tripadvisor"></i></a>
+            </div>
+            <p>&copy; 2023 Le Bistro. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Datos del menú simulados
+        const menuItems = [
+            {
+                id: 1,
+                name: "Foie Gras Mi-Cuit",
+                description: "Terrina de hígado de pato con reducción de oporto y pan brioche tostado",
+                price: 24.50,
+                category: "entrantes",
+                image: "https://images.unsplash.com/photo-1607532941433-304659e8198a?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+                tags: ["gluten"],
+                featured: true
+            },
+            {
+                id: 2,
+                name: "Tartar de Wagyu",
+                description: "Carne de wagyu A5 picada, yema de huevo de corral, alcaparras y tostadas",
+                price: 32.00,
+                category: "entrantes",
+                image: "https://images.unsplash.com/photo-1559847844-5315695dadae?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+                tags: ["gluten"],
+                featured: false
+            },
+            {
+                id: 3,
+                name: "Bouillabaisse Marsellesa",
+                description: "Sopa tradicional de pescados con azafrán, patatas y rouille",
+                price: 28.50,
+                category: "principales",
+                image: "https://images.unsplash.com/photo-1572695157366-5e585ab2b69f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+                tags: ["pescado", "gluten"],
+                featured: true
+            },
+            {
+                id: 4,
+                name: "Confit de Pato",
+                description: "Pato cocinado en su grasa con puré de patatas trufado y reducción de frutos rojos",
+                price: 34.00,
+                category: "principales",
+                image: "https://images.unsplash.com/photo-1544025162-d76694265947?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+                tags: [],
+                featured: false
+            },
+            {
+                id: 5,
+                name: "Soufflé au Chocolat",
+                description: "Clásico soufflé de chocolate negro con helado de vainilla",
+                price: 14.50,
+                category: "postres",
+                image: "https://images.unsplash.com/photo-1563805042-7684c019e1cb?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+                tags: ["gluten", "lacteos"],
+                featured: true
+            }
+        ];
+
+        // Generar menú
+        function renderMenu(items = menuItems) {
+            const container = document.getElementById('menuContainer');
+            container.innerHTML = '';
+            
+            items.forEach(item => {
+                const menuItem = document.createElement('div');
+                menuItem.className = 'menu-item';
+                
+                let tagsHTML = '';
+                if (item.tags.includes('gluten')) tagsHTML += '<span class="tag">Contiene gluten</span>';
+                if (item.tags.includes('lacteos')) tagsHTML += '<span class="tag">Lácteos</span>';
+                if (item.tags.includes('pescado')) tagsHTML += '<span class="tag">Pescado</span>';
+                
+                menuItem.innerHTML = `
+                    <img src="${item.image}" alt="${item.name}">
+                    <div class="menu-item-content">
+                        <h3>${item.name}</h3>
+                        <p>${item.description}</p>
+                        <div class="price">$${item.price.toFixed(2)}</div>
+                        <div class="diet-tags">${tagsHTML}</div>
+                    </div>
+                `;
+                
+                container.appendChild(menuItem);
+            });
+        }
+
+        // Filtrar menú
+        function filterMenu(category) {
+            const buttons = document.querySelectorAll('.category-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            if (category === 'all') {
+                renderMenu();
+            } else {
+                const filtered = menuItems.filter(item => item.category === category);
+                renderMenu(filtered);
+            }
+        }
+
+        // Inicializar
+        document.addEventListener('DOMContentLoaded', renderMenu);
+    </script>
+</body>
+</html>

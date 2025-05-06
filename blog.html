@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Viajes & Aventuras | Blog Personal</title>
+    <style>
+        /* Estilos completos para el blog */
+        :root {
+            --primary: #2ec4b6;
+            --secondary: #e71d36;
+            --dark: #011627;
+            --light: #fdfffc;
+            --gray: #6c757d;
+        }
+        
+        body {
+            font-family: 'Merriweather', serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f9f9f9;
+        }
+        
+        /* Header */
+        .header {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        
+        .nav-links a {
+            margin-left: 2rem;
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+        }
+        
+        /* Hero */
+        .blog-hero {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                        url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center/cover;
+            height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+        
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        /* Blog Grid */
+        .blog-container {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 5%;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 3rem;
+        }
+        
+        .posts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+        
+        .post-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .post-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .post-image {
+            height: 250px;
+            width: 100%;
+            object-fit: cover;
+        }
+        
+        .post-content {
+            padding: 1.5rem;
+        }
+        
+        .post-category {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            margin-bottom: 1rem;
+        }
+        
+        .post-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            line-height: 1.3;
+        }
+        
+        .post-excerpt {
+            color: var(--gray);
+            margin-bottom: 1.5rem;
+        }
+        
+        .post-meta {
+            display: flex;
+            justify-content: space-between;
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+        
+        /* Sidebar */
+        .sidebar {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            height: fit-content;
+        }
+        
+        .sidebar-title {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--primary);
+        }
+        
+        .about-widget {
+            margin-bottom: 2rem;
+        }
+        
+        .author-image {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 1rem;
+        }
+        
+        .categories-list a {
+            display: block;
+            padding: 0.5rem 0;
+            color: var(--gray);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .categories-list a:hover {
+            color: var(--primary);
+        }
+        
+        /* Newsletter */
+        .newsletter-form {
+            margin-top: 2rem;
+        }
+        
+        .newsletter-form input {
+            width: 100%;
+            padding: 0.8rem;
+            margin-bottom: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        
+        .subscribe-btn {
+            width: 100%;
+            padding: 0.8rem;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        .subscribe-btn:hover {
+            background: var(--dark);
+        }
+        
+        /* Footer */
+        .footer {
+            background: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 3rem 5%;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="logo">Wanderlust</div>
+            <div class="nav-links">
+                <a href="#">Inicio</a>
+                <a href="#">Viajes</a>
+                <a href="#">Fotografía</a>
+                <a href="#">Sobre mí</a>
+                <a href="#">Contacto</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero -->
+    <section class="blog-hero">
+        <div class="hero-content">
+            <h1>Explora el Mundo conmigo</h1>
+            <p>Historias, consejos y fotografías de mis aventuras alrededor del globo</p>
+        </div>
+    </section>
+
+    <!-- Blog Content -->
+    <div class="blog-container">
+        <main class="posts-grid" id="postsContainer">
+            <!-- Artículos generados con JS -->
+        </main>
+        
+        <aside class="sidebar">
+            <div class="about-widget">
+                <h3 class="sidebar-title">Sobre Mí</h3>
+                <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Autora" class="author-image">
+                <p>Hola, soy María. Desde 2015 comparto mis experiencias viajando por los 5 continentes. Amante de la fotografía y las culturas locales.</p>
+            </div>
+            
+            <div class="categories-widget">
+                <h3 class="sidebar-title">Categorías</h3>
+                <div class="categories-list">
+                    <a href="#">Europa</a>
+                    <a href="#">Asia</a>
+                    <a href="#">América</a>
+                    <a href="#">África</a>
+                    <a href="#">Oceanía</a>
+                    <a href="#">Consejos</a>
+                </div>
+            </div>
+            
+            <div class="newsletter-widget">
+                <h3 class="sidebar-title">Newsletter</h3>
+                <p>Suscríbete para recibir mis últimas aventuras directamente en tu email.</p>
+                <form class="newsletter-form">
+                    <input type="text" placeholder="Tu nombre">
+                    <input type="email" placeholder="Tu email">
+                    <button type="submit" class="subscribe-btn">Suscribirse</button>
+                </form>
+            </div>
+        </aside>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2023 Wanderlust - Todos los derechos reservados</p>
+    </footer>
+
+    <script>
+        // Generar posts falsos
+        const generatePosts = () => {
+            const categories = ['Europa', 'Asia', 'América', 'África', 'Oceanía', 'Consejos'];
+            const places = [
+                'Toscana', 'Bali', 'Patagonia', 'Marrakech', 'Nueva Zelanda', 
+                'Japón', 'Noruega', 'Perú', 'Tailandia', 'Canadá'
+            ];
+            
+            return Array.from({ length: 6 }, (_, i) => ({
+                id: i + 1,
+                title: `Mis experiencias en ${places[i]}`,
+                excerpt: `Una crónica detallada de mi viaje por ${places[i]} con recomendaciones de lugares que no aparecen en las guías turísticas.`,
+                category: categories[Math.floor(Math.random() * categories.length)],
+                date: new Date(Date.now() - Math.floor(Math.random() * 30 * 24 * 60 * 60 * 1000)).toLocaleDateString(),
+                readTime: `${Math.floor(Math.random() * 10) + 5} min`,
+                image: `https://source.unsplash.com/random/600x400/?${places[i].toLowerCase()},travel,${i}`,
+                featured: Math.random() > 0.7
+            }));
+        };
+
+        const posts = generatePosts();
+
+        // Renderizar posts
+        function renderPosts() {
+            const container = document.getElementById('postsContainer');
+            container.innerHTML = '';
+            
+            posts.forEach(post => {
+                const postCard = document.createElement('article');
+                postCard.className = 'post-card';
+                
+                postCard.innerHTML = `
+                    <img src="${post.image}" alt="${post.title}" class="post-image">
+                    <div class="post-content">
+                        <span class="post-category">${post.category}</span>
+                        <h2 class="post-title">${post.title}</h2>
+                        <p class="post-excerpt">${post.excerpt}</p>
+                        <div class="post-meta">
+                            <span>${post.date}</span>
+                            <span>${post.readTime} de lectura</span>
+                        </div>
+                    </div>
+                `;
+                
+                container.appendChild(postCard);
+            });
+        }
+
+        // Inicializar
+        document.addEventListener('DOMContentLoaded', renderPosts);
+    </script>
+</body>
+</html>

@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Deny Avilés | Frontend Developer</title>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <style>
+    :root {
+      --bg-color: #0e0e0e;
+      --text-color: #f4f4f4;
+      --primary: #00ffc8;
+      --card-bg: #1e1e1e;
+    }
+
+    body.light {
+      --bg-color: #ffffff;
+      --text-color: #111111;
+      --card-bg: #f2f2f2;
+    }
+
+    body {
+      background: var(--bg-color);
+      color: var(--text-color);
+      font-family: 'Segoe UI', sans-serif;
+      transition: 0.3s ease;
+      margin: 0;
+    }
+
+    header {
+      background: var(--card-bg);
+      padding: 30px;
+      text-align: center;
+    }
+
+    nav a {
+      color: var(--primary);
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    .toggle-btn {
+      background: var(--primary);
+      color: black;
+      border: none;
+      padding: 8px 15px;
+      cursor: pointer;
+      float: right;
+      margin: 10px;
+    }
+
+    section {
+      padding: 60px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    h2 {
+      color: var(--primary);
+    }
+
+    .skills {
+      display: flex;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+
+    .skill {
+      text-align: center;
+      background: var(--card-bg);
+      padding: 20px;
+      border-radius: 10px;
+      width: 100px;
+    }
+
+    .skill img {
+      width: 40px;
+      margin-bottom: 10px;
+    }
+
+    .slider {
+      display: flex;
+      overflow-x: auto;
+      gap: 20px;
+      scroll-snap-type: x mandatory;
+    }
+
+    .project {
+      flex: 0 0 300px;
+      scroll-snap-align: start;
+      background: var(--card-bg);
+      padding: 20px;
+      border-radius: 10px;
+    }
+
+    .btn {
+      background: var(--primary);
+      color: #000;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      display: inline-block;
+      text-decoration: none;
+    }
+
+    form input, form textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: none;
+      border-radius: 5px;
+    }
+
+    footer {
+      background: #111;
+      text-align: center;
+      padding: 20px;
+      color: #888;
+    }
+  </style>
+</head>
+<body>
+  <button class="toggle-btn" onclick="toggleMode()">🌗 Modo</button>
+  <header>
+    <h1>Deny Avilés</h1>
+    <p>Frontend Developer | HTML • CSS • JavaScript</p>
+    <nav>
+      <a href="#about">Sobre mí</a>
+      <a href="#skills">Habilidades</a>
+      <a href="#projects">Proyectos</a>
+      <a href="#contact">Contacto</a>
+    </nav>
+  </header>
+
+  <section id="about" data-aos="fade-up">
+    <h2>Sobre mí</h2>
+    <p>Soy Deny, desarrollador frontend apasionado por construir interfaces modernas, responsivas y efectivas. Me encanta convertir ideas en experiencias interactivas usando HTML, CSS y JavaScript.</p>
+    <div class="project">
+      <h3>Curriculum Web Interactivo</h3>
+      <p>Diseño tipo CV digital con scroll suave, modo oscuro y sección de descarga en PDF.</p>
+      <a href="#" class="btn">Ver proyecto</a>
+    </div>
+  </section>
+
+  <section id="skills" data-aos="fade-up">
+    <h2>Habilidades</h2>
+    <div class="skills">
+      <div class="skill">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML" />
+        <p>HTML5</p>
+      </div>
+      <div class="skill">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS" />
+        <p>CSS3</p>
+      </div>
+      <div class="skill">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JS" />
+        <p>JavaScript</p>
+      </div>
+    </div>
+    <div class="project" style="margin-top: 30px;">
+      <h3>Galería Dinámica</h3>
+      <p>Una galería de imágenes construida con HTML, CSS Grid y JS para filtros interactivos.</p>
+      <a href="#" class="btn">Ver proyecto</a>
+    </div>
+  </section>
+
+  <section id="projects" data-aos="fade-up">
+    <h2>Proyectos</h2>
+    <div class="slider">
+      <div class="project">
+        <h3>Landing Page Moderna</h3>
+        <p>Diseño moderno, animaciones suaves, responsivo y optimizado para SEO.</p>
+        <a href="#" class="btn">Ver proyecto file:///C:/Users/sanbo/V/restaurante.html</a>
+      </div>
+      <div class="project">
+        <h3>Juego de Memoria</h3>
+        <p>Juego de emparejar cartas con tiempo, puntuación y reinicio, usando JS puro.</p>
+        <a href="#" class="btn">Ver proyecto</a>
+      </div>
+      <div class="project">
+        <h3>Portafolio Responsive</h3>
+        <p>Portafolio personal responsivo con secciones, animaciones AOS y modo oscuro.</p>
+        <a href="#" class="btn">Ver proyecto</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" data-aos="fade-up">
+    <h2>Contacto</h2>
+    <p>¿Interesado en colaborar? ¡Contáctame!</p>
+    <p>📧 avilesdeny98@gmail.com</p>
+    <p>📞 443 484 5675</p>
+    <a href="https://wa.me/524434845675" class="btn">💬 Escríbeme por WhatsApp</a>
+
+    <div class="project">
+      <h3>Formulario Validado</h3>
+      <p>Formulario de contacto con validación de campos y mensajes personalizados en JS.</p>
+      <a href="#" class="btn">Ver proyecto</a>
+    </div>
+    <form id="contact-form">
+      <input type="text" name="name" placeholder="Tu nombre" required />
+      <input type="email" name="email" placeholder="Tu correo" required />
+      <textarea name="message" rows="5" placeholder="Tu mensaje" required></textarea>
+      <button type="submit" class="btn">Enviar</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>© 2025 Deny Avilés. Todos los derechos reservados.</p>
+  </footer>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init();
+
+    function toggleMode() {
+      document.body.classList.toggle("light");
+    }
+
+    document.getElementById("contact-form").addEventListener("submit", function (e) {
+      e.preventDefault();
+      alert("Formulario simulado. Puedes conectarlo a EmailJS o Formspree.");
+      this.reset();
+    });
+  </script>
+</body>
+</html>
